@@ -9,4 +9,3 @@ def title_data():
 def text_data():
     text = input('Введите информацию для сохранения в заметку: ')
     return text
-
