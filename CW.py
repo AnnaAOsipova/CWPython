@@ -2,6 +2,7 @@ from data import id_data, title_data, text_data
 from datetime import datetime
 import csv
 
+
 def write_data():  # создаем новую заметку
     id = id_data()  
     title = title_data()
@@ -40,6 +41,8 @@ def print_data(): # выводим данные из файла с заметк�
     with open('notes.csv', 'r', encoding = 'utf-8') as f:
         notes = f.readlines()  # прочитали все наши строки
         print(*notes)      # выводим данные на печать, с распаковкой через *
+# print_data()
+
 def print_data_line(): # выводим данные из файла с заметками в терминал
     n = int(input('Введите номер заметки для вывода на печать: '))
     
@@ -53,4 +56,15 @@ def print_data_line(): # выводим данные из файла с заме
             notes = f.readlines()  # прочитали все наши строки
             print(notes[n-1])
 
-print_data_line()
+# print_data_line()
+            
+def print_date_selection(): 
+ with open('notes.csv', 'r', encoding = 'utf-8') as csv_file:
+        search_value = input("Введите дату записи/изменения файла для поиска в формате DD.MM.YYYY: ")
+        for row in csv_file:
+            if (search_value in row): 
+                print(row[:-1])
+            else:
+                print("Запись не найдена.")
+                break
+# print_date_selection()
